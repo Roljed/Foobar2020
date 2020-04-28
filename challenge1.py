@@ -4,6 +4,11 @@ MAX_VALUE = 122
 
 
 def solution1(x):
+    """
+    Deciphers string and prints the output.
+    :param x: Encrypted string.
+    :return: None.
+    """
     output = ""
     for ch in x:
         ch_decimal = ord(ch)

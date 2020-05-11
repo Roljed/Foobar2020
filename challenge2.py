@@ -80,6 +80,11 @@ def sub_challenge1():
 
 
 def solution2_2(l):
+    """
+    Max permutation divisible by 3 dict of r.
+    :param l: list of numbers in base 10.
+    :return: max number divisible by 3.
+    """
     mega_permutations_list = []
     i = 1
     while i <= len(l):

@@ -79,23 +79,20 @@ def sub_challenge1():
     print(result2_1)
 
 
-def solution2_2(x):
-    permutations = list(itertools.permutations(x))
+def solution2_2(l):
+    mega_permutations_list = []
+    i = 1
+    while i <= len(l):
+        permutations = list(itertools.permutations(l, i))
+        mega_permutations_list.append(permutations)
+        i = i + 1
+
     divisible_3 = []
-    for numbers in permutations:
-        number = int(''.join(map(str, numbers)))
-        if number >= 3 and number % 3 == 0:
-            divisible_3.append(number)
-        else:
-            numbers_list = list(numbers)
-            i = 0
-            while i < len(numbers_list):
-                temp_numbers = numbers_list
-                print("i: ", i)
-                temp_numbers.pop(i)
-                sol = solution2_2(temp_numbers)
-                print("sol: ", sol)
-                i = i + 1
+    for permutations in mega_permutations_list:
+        for numbers in permutations:
+            number = int(''.join(map(str, numbers)))
+            if number >= 3 and number % 3 == 0:
+                divisible_3.append(number)
 
     if len(divisible_3) != 0:
         return max(divisible_3)

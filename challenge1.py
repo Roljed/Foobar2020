@@ -20,5 +20,5 @@ def solution1(x):
 
 
 if __name__ == '__main__':
-    test1 = "wrw blf hvv ozhg mrtsg'h vkrhlwv?"
-    solution1(test1)
+    test1_1 = "wrw blf hvv ozhg mrtsg'h vkrhlwv?"
+    solution1(test1_1)

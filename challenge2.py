@@ -1,3 +1,5 @@
+import itertools
+
 LEN_MAJOR = 1
 LEN_MINOR = 2
 
@@ -69,8 +71,52 @@ def _print_solution(z):
     print(output[:-1])
 
 
-if __name__ == '__main__':
+def sub_challenge1():
+    print("----- Sub Challenge 1 -----")
     test2_1 = ["1.11", "2.0.0", "1.2", "2", "0.1", "1.2.1", "1.1.1", "2.0"]
     result2_1 = '0.1,1.1.1,1.2,1.2.1,1.11,2,2.0,2.0.0'
     solution2_1(test2_1)
     print(result2_1)
+
+
+def solution2_2(x):
+    permutations = list(itertools.permutations(x))
+    divisible_3 = []
+    for numbers in permutations:
+        number = int(''.join(map(str, numbers)))
+        if number >= 3 and number % 3 == 0:
+            divisible_3.append(number)
+        else:
+            numbers_list = list(numbers)
+            i = 0
+            while i < len(numbers_list):
+                temp_numbers = numbers_list
+                print("i: ", i)
+                temp_numbers.pop(i)
+                sol = solution2_2(temp_numbers)
+                print("sol: ", sol)
+                i = i + 1
+
+    if len(divisible_3) != 0:
+        return max(divisible_3)
+    else:
+        return 0
+
+
+def sub_challenge2():
+    print("----- Sub Challenge 2 -----")
+    test2_2 = [3, 1, 4, 1]
+    result2_2 = 4311
+    print(solution2_2(test2_2))
+    print(result2_2)
+
+    test2_3 = [3, 1, 4, 1, 5, 9]
+    result2_3 = 94311
+    print(solution2_2(test2_3))
+    print(result2_3)
+    pass
+
+
+if __name__ == '__main__':
+    sub_challenge1()
+    sub_challenge2()
